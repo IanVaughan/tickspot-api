@@ -18,7 +18,7 @@ Usage
 Install
 -------
 
-    gem install tickspot-api
+    gem install tickspot_api
 
 
 License
