@@ -1,5 +1,5 @@
-tickspot-ruby
-=============
+tickspot-api
+============
 
 Description
 -----------
@@ -12,15 +12,13 @@ Ruby wrapper around the Tickspot API
 Usage
 -----
 
-  ts = Tickspot::Api.new("company", "email@example.com", "password")
-
-
+    ts = Tickspot::Api.new("company", "email@example.com", "password")
 
 
 Install
 -------
 
-  gem install tickspot-api
+    gem install tickspot-api
 
 
 License
