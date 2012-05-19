@@ -1,0 +1,13 @@
+---
+- id: 86580
+  first_name: Ian
+  last_name: Vaughan
+  email: tickspot@ianvaughan.co.uk
+  created_at: 2012-05-14 06:41:23.000000000 Z
+  updated_at: 2012-05-14 06:43:06.000000000 Z
+- id: 86583
+  first_name: TickSpotTestUser-FirstName
+  last_name: TickSpotTestUser-LastName
+  email: tickspot-test@ianvaughan.co.uk
+  created_at: 2012-05-14 06:51:24.000000000 Z
+  updated_at: 2012-05-14 06:57:57.000000000 Z

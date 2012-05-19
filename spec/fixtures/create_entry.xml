@@ -1,0 +1,48 @@
+HTTP/1.1 200 OK
+Date: Sat, 19 May 2012 14:53:59 GMT
+Server: Apache/2.2.9 (Ubuntu) Phusion_Passenger/3.0.11 mod_ssl/2.2.9 OpenSSL/0.9.8g
+X-Powered-By: Phusion Passenger (mod_rails/mod_rack) 3.0.11
+ETag: "53e653461f8eae95665a3b4ef8f4f31d"
+X-Runtime: 16
+Cache-Control: private, max-age=0, must-revalidate
+Content-Length: 1449
+Status: 200
+Connection: close
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<entry>
+  <id type="integer">13372505</id>
+  <task_id type="integer">2162941</task_id>
+  <user_id type="integer">86580</user_id>
+  <date type="date">2012-05-19</date>
+  <hours type="float">1.00</hours>
+  <notes></notes>
+  <created_at type="datetime">Sat, 19 May 2012 10:53:59 -0400</created_at>
+  <updated_at type="datetime">Sat, 19 May 2012 10:53:59 -0400</updated_at>
+  <user_email type="text">tickspot@ianvaughan.co.uk</user_email>
+  <task>
+    <id type="integer">2162941</id>
+    <name>TestClient-TestProject-TestTask1</name>
+    <position type="integer">1</position>
+    <project_id type="integer">408314</project_id>
+    <opened_on type="date">2012-05-14</opened_on>
+    <closed_on type="date"></closed_on>
+    <budget type="float">10.00</budget>
+    <billable type="boolean">true</billable>
+    <total_hours>1.00</total_hours>
+    <user_count>1</user_count>
+  </task>
+  <project>
+    <id type="integer">408314</id>
+    <name>TestClient-TestProject</name>
+    <budget type="float">100.00</budget>
+    <client_id type="integer">128542</client_id>
+    <opened_on type="date">2012-05-14</opened_on>
+    <closed_on type="date"></closed_on>
+    <created_at type="datetime">Mon, 14 May 2012 02:44:46 -0400</created_at>
+    <updated_at type="datetime">Mon, 14 May 2012 02:49:57 -0400</updated_at>
+    <total_hours type="float">1.00</total_hours>
+    <client_name>TestClient2</client_name>
+  </project>
+</entry>

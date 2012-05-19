@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Date: Sat, 19 May 2012 14:56:21 GMT
+Server: Apache/2.2.9 (Ubuntu) Phusion_Passenger/3.0.11 mod_ssl/2.2.9 OpenSSL/0.9.8g
+X-Powered-By: Phusion Passenger (mod_rails/mod_rack) 3.0.11
+X-Runtime: 12
+Cache-Control: no-cache
+Content-Length: 1
+Status: 200
+Vary: Accept-Encoding
+Connection: close
+Content-Type: text/html; charset=utf-8
+
+ 

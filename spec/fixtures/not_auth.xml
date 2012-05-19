@@ -1,0 +1,13 @@
+HTTP/1.1 401 Authorization Required
+Date: Sat, 19 May 2012 14:44:16 GMT
+Server: Apache/2.2.9 (Ubuntu) Phusion_Passenger/3.0.11 mod_ssl/2.2.9 OpenSSL/0.9.8g
+X-Powered-By: Phusion Passenger (mod_rails/mod_rack) 3.0.11
+X-Runtime: 1
+Cache-Control: no-cache
+Content-Length: 43
+Status: 401
+Vary: Accept-Encoding
+Connection: close
+Content-Type: text/html; charset=utf-8
+
+The user information provided is not valid.

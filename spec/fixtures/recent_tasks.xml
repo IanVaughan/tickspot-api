@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+Date: Sat, 19 May 2012 14:50:27 GMT
+Server: Apache/2.2.9 (Ubuntu) Phusion_Passenger/3.0.11 mod_ssl/2.2.9 OpenSSL/0.9.8g
+X-Powered-By: Phusion Passenger (mod_rails/mod_rack) 3.0.11
+ETag: "07c22d37714abcccbac7ce5bc330498f"
+X-Runtime: 4
+Cache-Control: private, max-age=0, must-revalidate
+Content-Length: 69
+Status: 200
+Connection: close
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<tasks type="array">
+</tasks>

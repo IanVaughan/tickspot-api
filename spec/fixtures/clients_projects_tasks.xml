@@ -1,0 +1,63 @@
+HTTP/1.1 200 OK
+Date: Sat, 19 May 2012 14:46:46 GMT
+Server: Apache/2.2.9 (Ubuntu) Phusion_Passenger/3.0.11 mod_ssl/2.2.9 OpenSSL/0.9.8g
+X-Powered-By: Phusion Passenger (mod_rails/mod_rack) 3.0.11
+ETag: "11fd1b0d8276fd96cc2a4332ca7cdb5c"
+X-Runtime: 11
+Cache-Control: private, max-age=0, must-revalidate
+Content-Length: 2082
+Status: 200
+Connection: close
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<clients type="array">
+  <client>
+    <id type="integer">128542</id>
+    <name>TestClient2</name>
+    <projects type="array">
+      <project>
+        <id type="integer">408314</id>
+        <name type="text">TestClient-TestProject</name>
+        <budget type="float">100.00</budget>
+        <client_id type="integer">128542</client_id>
+        <opened_on type="date">2012-05-14</opened_on>
+        <closed_on type="date"></closed_on>
+        <created_at type="datetime">Mon, 14 May 2012 02:44:46 -0400</created_at>
+        <updated_at type="datetime">Mon, 14 May 2012 02:49:57 -0400</updated_at>
+        <tasks type="array">
+          <task>
+            <id type="integer">2162941</id>
+            <name>TestClient-TestProject-TestTask1</name>
+            <position type="integer">1</position>
+            <project_id type="integer">408314</project_id>
+            <opened_on type="date">2012-05-14</opened_on>
+            <closed_on type="date"></closed_on>
+            <budget type="float">10.00</budget>
+            <billable type="boolean"></billable>
+          </task>
+          <task>
+            <id type="integer">2162942</id>
+            <name>TestClient-TestProject-TestTask2</name>
+            <position type="integer">2</position>
+            <project_id type="integer">408314</project_id>
+            <opened_on type="date">2012-05-14</opened_on>
+            <closed_on type="date"></closed_on>
+            <budget type="float">90.00</budget>
+            <billable type="boolean"></billable>
+          </task>
+          <task>
+            <id type="integer">2162943</id>
+            <name>TestClient-TestProject-TestTask3</name>
+            <position type="integer">3</position>
+            <project_id type="integer">408314</project_id>
+            <opened_on type="date">2012-05-14</opened_on>
+            <closed_on type="date"></closed_on>
+            <budget type="float">0.00</budget>
+            <billable type="boolean"></billable>
+          </task>
+        </tasks>
+      </project>
+    </projects>
+  </client>
+</clients>

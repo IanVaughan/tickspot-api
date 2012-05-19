@@ -1,0 +1,31 @@
+HTTP/1.1 200 OK
+Date: Sat, 19 May 2012 14:46:44 GMT
+Server: Apache/2.2.9 (Ubuntu) Phusion_Passenger/3.0.11 mod_ssl/2.2.9 OpenSSL/0.9.8g
+X-Powered-By: Phusion Passenger (mod_rails/mod_rack) 3.0.11
+ETag: "8f56151c33771f6b04d474fb81cc5e58"
+X-Runtime: 6
+Cache-Control: private, max-age=0, must-revalidate
+Content-Length: 755
+Status: 200
+Connection: close
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<users type="array">
+  <user>
+    <id type="integer">86580</id>
+    <first_name>Ian</first_name>
+    <last_name>Vaughan</last_name>
+    <email>tickspot@ianvaughan.co.uk</email>
+    <created_at type="datetime">Mon, 14 May 2012 02:41:23 -0400</created_at>
+    <updated_at type="datetime">Mon, 14 May 2012 02:43:06 -0400</updated_at>
+  </user>
+  <user>
+    <id type="integer">86583</id>
+    <first_name>TickSpotTestUser-FirstName</first_name>
+    <last_name>TickSpotTestUser-LastName</last_name>
+    <email>tickspot-test@ianvaughan.co.uk</email>
+    <created_at type="datetime">Mon, 14 May 2012 02:51:24 -0400</created_at>
+    <updated_at type="datetime">Mon, 14 May 2012 02:57:57 -0400</updated_at>
+  </user>
+</users>
