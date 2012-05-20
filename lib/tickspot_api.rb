@@ -1,3 +1,5 @@
+$LOAD_PATH << 'lib'
+
 require 'tickspot/tickspot'
 
 module Tickspot
