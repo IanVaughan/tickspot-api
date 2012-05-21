@@ -1,7 +1,10 @@
 source :rubygems
 
-gem 'fakeweb'
 gem 'httparty'
-gem 'rake'
-gem 'rspec'
-gem 'webmock'
+
+group :test do
+  gem 'fakeweb'
+  gem 'rake'
+  gem 'rspec'
+  gem 'webmock'
+end
