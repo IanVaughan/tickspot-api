@@ -1,5 +1,5 @@
 require 'spec_helper'
-require './lib/tickspot'
+require './lib/tickspot_api'
 
 module Tickspot
   describe Api do

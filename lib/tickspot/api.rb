@@ -5,10 +5,37 @@ module Tickspot
     include HTTParty
     format :xml
 
-    def initialize(site, u, p)
+    def initialize(site, u, p) #config = nil
       @auth = {email: u, password: p}
       self.class.base_uri "https://#{site}.tickspot.com"
+      # default_params :output => 'json'
+
+      # @cache = {}
+      # set_config(config) if config.nil?
+      # load_config(find_config) unless config.nil?
+      # @domain = config.company + "tickspot.com"
     end
+
+    # def load_config filename
+      # raise "ERROR: Cannot find file #{filename}" unless File.exists? filename
+      # config = YAML.load_file(filename)
+
+      # @ts = Tickspot.new "#{config['company']}.tickspot.com", config['email'], config['password']
+      # conf.save_file @config_file
+      # YAML::dump(conf, @config_file)
+    # end
+
+    # def find_config
+      # search current dir and up
+      # '~/.tickconfig'
+    # end
+
+    # def set_config config
+    #   raise 'Incorrect params' unless config.company and config.email and config.password
+    #   @company = config['company'] if config.has_key? 'company'
+    #   @email = config['email'] if config.has_key? 'email'
+    #   @password = config['password'] if config.has_key? 'password'
+    # end
 
     # http://tickspot.com/api/
     # The API response is wrapped within a top level XML node which normally matches the method name
@@ -67,21 +94,46 @@ module Tickspot
       request('create_entry', required_params.merge(optional_params))['entry']
     end
 
-  private
+  # private
 
     def request method, params
-      self.class.post("/api/#{method}", :query => @auth.merge(params))
+      # optional_params.delete 'reload'
+      # if !@cache.has_key?(method) || (params.has_key?('reload') && params['reload'] == true) # refresh/force/
+        # save cache on every access, load before reading
+        ret = self.class.post("/api/#{method}", :query => @auth.merge(params))
+        # raise Unauthorized if response.is_a? Net::HTTPUnauthorized
+        # ret = @cache[method]
+        # ret = Data.new @cache[method]['users']
+        # ret = Data.new @cache[method]
+        # @cache[method] = request_result
+      # end
+      ret
     end
 
     def check hash, keys
+      #, optional = false
       expecting = "expecting one of '#{keys}'"
       raise "Must be a hash, #{expecting}" unless hash.is_a? Hash
       keys.each do |key|
         msg = "Required parameter missing : #{key}, #{expecting}"
         raise msg unless hash.has_key?(key)
+        #and optional
         return unless hash.has_key?(key)
+        #and optional
       end
       true
+    end
+
+    class Unauthorized < RuntimeError
+      def message
+        "You are not authorized to perform this action. If your login information is correct, you may be calling at admin-only action.  See http://tickspot.com/api/ for more information."
+      end
+    end
+
+    class IncorrectParam < RuntimeError
+      def message(p)
+        "#{p}"
+      end
     end
 
   end
