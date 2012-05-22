@@ -7,7 +7,7 @@
     budget: 100.0
     client_id: 128542
     opened_on: 2012-05-14
-    closed_on: 
+    closed_on:
     created_at: 2012-05-14 06:44:46.000000000 Z
     updated_at: 2012-05-14 06:49:57.000000000 Z
     tasks:
@@ -16,22 +16,22 @@
       position: 1
       project_id: 408314
       opened_on: 2012-05-14
-      closed_on: 
+      closed_on:
       budget: 10.0
-      billable: 
+      billable:
     - id: 2162942
       name: TestClient-TestProject-TestTask2
       position: 2
       project_id: 408314
       opened_on: 2012-05-14
-      closed_on: 
+      closed_on:
       budget: 90.0
-      billable: 
+      billable:
     - id: 2162943
       name: TestClient-TestProject-TestTask3
       position: 3
       project_id: 408314
       opened_on: 2012-05-14
-      closed_on: 
+      closed_on:
       budget: 0.0
-      billable: 
+      billable:

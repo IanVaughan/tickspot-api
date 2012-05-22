@@ -1,6 +1,7 @@
 $LOAD_PATH << 'lib'
 
-require 'tickspot/tickspot'
+require 'tickspot/api'
+require 'tickspot/data'
 
 module Tickspot
   VERSION = '0.0.5'
