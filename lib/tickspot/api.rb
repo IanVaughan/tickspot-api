@@ -123,18 +123,5 @@ module Tickspot
       end
       true
     end
-
-    class Unauthorized < RuntimeError
-      def message
-        "You are not authorized to perform this action. If your login information is correct, you may be calling at admin-only action.  See http://tickspot.com/api/ for more information."
-      end
-    end
-
-    class IncorrectParam < RuntimeError
-      def message(p)
-        "#{p}"
-      end
-    end
-
   end
 end
