@@ -80,19 +80,15 @@ module Tickspot
     end
 
     context 'methods' do
-
       before do
-        c = 'company'
-        u = 'user@email.com'
-        p = 'password'
-        @ts = Api.new c, u, p
+        @ts = Api.new 'company', 'user@email.com', 'password'
       end
 
       it 'should get clients' do
-        h = {'clients' => [{ 'id' => 128542, 'name' => 'TestClient2' }] }
-        @ts.stub(:request).and_return(h)
+        data = {'clients' => [{ 'id' => 128542, 'name' => 'TestClient2' }] }
+        @ts.stub(:request).and_return(data)
 
-        @ts.clients.should eq h['clients']
+        @ts.clients.should eq data['clients']
       end
 
       it 'should get clients with options' do
