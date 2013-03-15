@@ -97,17 +97,7 @@ module Tickspot
   # private
 
     def request method, params
-      # optional_params.delete 'reload'
-      # if !@cache.has_key?(method) || (params.has_key?('reload') && params['reload'] == true) # refresh/force/
-        # save cache on every access, load before reading
-        ret = self.class.post("/api/#{method}", :query => @auth.merge(params))
-        # raise Unauthorized if response.is_a? Net::HTTPUnauthorized
-        # ret = @cache[method]
-        # ret = Data.new @cache[method]['users']
-        # ret = Data.new @cache[method]
-        # @cache[method] = request_result
-      # end
-      ret
+      self.class.post("/api/#{method}", :query => @auth.merge(params))
     end
 
     def check hash, keys
