@@ -7,9 +7,6 @@ module Tickspot
   class Data
 
     def initialize config
-      # @data = parsed
-      # raise unless parsed.class == Hash
-      # @data = parsed#[parsed.keys.first]
       @config = config
     end
 
@@ -26,30 +23,6 @@ module Tickspot
         end
       clients #unless block_given?
     end
-
-    # def id
-    #   self.method_missing(:id)
-    # end
-    # def empty?
-    #   if @hash["type"] == "array" && @hash["content"] == "\n"
-    #     true
-    #   else
-    #     false
-    #   end
-    # end
-    # def method_missing(method, *args)
-    #   puts "->#{method}, #{args}"
-    #   return Data.new(@data[args.first]) if @data.class == Array
-    #   if @data.has_key?(method.to_s)
-    #     entry = @data[method.to_s]
-    #     # return entry[0] unless entry[0].class == Hash && entry[0].has_key?("content")
-    #     # return entry[0]["content"]
-    #     # entry = Data.new(entry) if entry.class == Hash
-    #     entry
-    #   else
-    #     super
-    #   end
-    # end
 
   end
 end
