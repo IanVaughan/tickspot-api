@@ -1,5 +1,7 @@
-TS = Tickspot::Api.new 'company', 'email', 'password'
+# This hits all the tickspot-api end points and saves the results into yml fixture files
+
 require './lib/tickspot_api'
+TS = Tickspot::Api.new 'electricvisions', 'tickspot@ianvaughan.co.uk', 'password'
 
 def save name
   File.open("spec/fixtures/#{name}.yml", 'w') do |f|
