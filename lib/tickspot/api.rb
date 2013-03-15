@@ -5,15 +5,10 @@ module Tickspot
     include HTTParty
     format :xml
 
-    def initialize(site, u, p) #config = nil
+    def initialize(site, u, p)
       @auth = {email: u, password: p}
       self.class.base_uri "https://#{site}.tickspot.com"
-      # default_params :output => 'json'
-
-      # @cache = {}
-      # set_config(config) if config.nil?
-      # load_config(find_config) unless config.nil?
-      # @domain = config.company + "tickspot.com"
+      default_params :output => 'json'
     end
 
     # http://tickspot.com/api/
@@ -34,7 +29,6 @@ module Tickspot
     # Optional : :task_id, :open [true|false], :task_billable [true|false]
     def tasks required_params, optional_params = {}
       check required_params, [:project_id]
-      # check optional_params, [:task_id, :open, :task_billable], false
       request('tasks', required_params.merge(optional_params))['tasks']
     end
 
@@ -46,7 +40,6 @@ module Tickspot
     # Optional : :project_id, :task_id, :user_id, :user_email, :client_id, :entry_billable [true|false], :billed [true|false]
     def entries required_params, optional_params = {}
       check required_params, [:start_date, :end_date]
-      # updated_at
       request('entries', required_params.merge(optional_params))['entries']
     end
 
@@ -73,22 +66,17 @@ module Tickspot
       request('create_entry', required_params.merge(optional_params))['entry']
     end
 
-  # private
-
     def request method, params
       self.class.post("/api/#{method}", :query => @auth.merge(params))
     end
 
     def check hash, keys
-      #, optional = false
       expecting = "expecting one of '#{keys}'"
       raise "Must be a hash, #{expecting}" unless hash.is_a? Hash
       keys.each do |key|
         msg = "Required parameter missing : #{key}, #{expecting}"
         raise msg unless hash.has_key?(key)
-        #and optional
         return unless hash.has_key?(key)
-        #and optional
       end
       true
     end
