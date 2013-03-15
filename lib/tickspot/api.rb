@@ -16,27 +16,6 @@ module Tickspot
       # @domain = config.company + "tickspot.com"
     end
 
-    # def load_config filename
-      # raise "ERROR: Cannot find file #{filename}" unless File.exists? filename
-      # config = YAML.load_file(filename)
-
-      # @ts = Tickspot.new "#{config['company']}.tickspot.com", config['email'], config['password']
-      # conf.save_file @config_file
-      # YAML::dump(conf, @config_file)
-    # end
-
-    # def find_config
-      # search current dir and up
-      # '~/.tickconfig'
-    # end
-
-    # def set_config config
-    #   raise 'Incorrect params' unless config.company and config.email and config.password
-    #   @company = config['company'] if config.has_key? 'company'
-    #   @email = config['email'] if config.has_key? 'email'
-    #   @password = config['password'] if config.has_key? 'password'
-    # end
-
     # http://tickspot.com/api/
     # The API response is wrapped within a top level XML node which normally matches the method name
     # but on some methods it differs
