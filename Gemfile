@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org/'
 
 gem 'httparty'
 
@@ -8,3 +8,7 @@ group :test do
   gem 'rspec'
   gem 'webmock'
 end
+
+# gem "highline"
+# gem "options"
+# require 'timecop'
