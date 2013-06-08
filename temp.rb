@@ -8,49 +8,17 @@ module TickIt
       # @ts = init config
     end
 
-    def projects search
+    def projects #search
       @ts.projects['projects'].each do |p|
         puts "[#{p['id']}] #{p['name']}"
       end
     end
 
-    def project name
-      puts projects['projects'][1]
-      puts "project : #{name}"
-    end
-
-    def self.find_config filename
-      dir = nil
-      pwd = Dir.pwd
-      while !File.exists? filename and Dir.pwd != '/' do
-        Dir.chdir '..'
-      end
-      dir = Dir.pwd if File.exists? filename
-      Dir.chdir pwd
-      puts dir
-      dir
-    end
-
     def my_clients_names
-      clients = []
-      Api.clients.each do |c|
-        clients << c['name']
-      end
-      client
+      Api.clients.map { |c| c['name'] }
     end
-
-    def my_clients_projects client
-      projects
-    end
-
   end
 end
-
-# TickIt::Api.find_config '.tickconfig'
-
-
-
-require './lib/tickspot/data'
 
 # $LOAD_PATH.unshift(File.dirname(__FILE__))
 # $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
@@ -58,9 +26,8 @@ require './lib/tickspot/data'
 # require File.dirname(__FILE__) + '/tickspot_entry'
 # require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-
-# ts = Tickspot::Api.new('electricvisions', 'tickspot@ianvaughan.co.uk', 'password')
-# ts = Tickspot::Api.new('globalpersonals', 'ivaughan@globalpersonals.co.uk', 'cookies')
+ts = Tickspot::Api.new('electricvisions', 'tickspot@ianvaughan.co.uk', 'password')
+ts = Tickspot::Api.new('globalpersonals', 'ivaughan@globalpersonals.co.uk', 'password')
 
 # ts['projects'].first['name']
 # => "TestClient-TestProject"
@@ -69,13 +36,6 @@ require './lib/tickspot/data'
 # puts ts.projects
 # puts pro[0]
 # puts pro[0]['id']
-
-# @auth = {
-#   email:    config.email,
-#   password: config.password
-# }
-
-
 
 
 ts.clients
@@ -92,4 +52,12 @@ id = {project_id: 408314}
 ts.tasks(id)
 => [{"id"=>2162941, "name"=>"TestClient-TestProject-TestTask1", "position"=>1, "project_id"=>408314, "opened_on"=>#<Date: 2012-05-14 ((2456062j,0s,0n),+0s,2299161j)>, "closed_on"=>nil, "budget"=>10.0, "billable"=>true}, {"id"=>2162942, "name"=>"TestClient-TestProject-TestTask2", "position"=>2, "project_id"=>408314, "opened_on"=>#<Date: 2012-05-14 ((2456062j,0s,0n),+0s,2299161j)>, "closed_on"=>nil, "budget"=>90.0, "billable"=>true}, {"id"=>2162943, "name"=>"TestClient-TestProject-TestTask3", "position"=>3, "project_id"=>408314, "opened_on"=>#<Date: 2012-05-14 ((2456062j,0s,0n),+0s,2299161j)>, "closed_on"=>nil, "budget"=>0.0, "billable"=>true}]
 
+
+
+require 'ostruct'
+class Test < OpenStruct
+  def ids
+    self.marshal_dump.each {|k,v| puts "#{k} -- #{v}"}
+  end
+end
 

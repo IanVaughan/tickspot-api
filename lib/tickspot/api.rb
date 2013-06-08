@@ -7,7 +7,7 @@ module Tickspot
 
     def initialize(site, u, p)
       @auth = {email: u, password: p}
-      self.class.base_uri "https://#{site}.tickspot.com"
+      self.class.base_uri "https://#{site}.tickspot.com/api/"
     end
 
     # http://tickspot.com/api/
@@ -66,7 +66,7 @@ module Tickspot
     end
 
     def request path, params
-      self.class.post("/api/#{path}", :query => @auth.merge(params))
+      self.class.post(path, :query => @auth.merge(params))
     end
 
     def check hash, keys

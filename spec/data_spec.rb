@@ -1,57 +1,49 @@
 require 'spec_helper'
 require './lib/tickspot_api'
-# require 'tick-it/api/api'
 
 module Tickspot
   describe Data do
-    # let(:ts) { double ('Tickspot::Api') }
-    # let(:api) { Api.new '','','' }
+    let(:login) { {company:'', email:'', password:'' } }
+    subject { Data.new login }
+    let(:test_data) { fixture 'clients_projects_tasks' }
+    let(:test_client) { Client.new test_data }
 
     before do
-      h = {company:'', email:'', password:'' }
-      @data = Data.new h
+      # input = [{'name'=>'foo', 'id'=>1}, {'name'=>'bar', 'id'=>2}] #['foo', 'bar']
+      Api.any_instance.stub(:clients_projects_tasks).and_return(test_data) # stub out real API call
     end
 
-    context 'Data should return Client objects' do
+    # its(:clients) { should be_kind_of Array } # Or like an Array
+    its(:clients) { should respond_to :each }
+    # its(:clients) { should respond_to :names }
+    # its(:clients) { should respond_to :ids }
 
-      before do
-        # input = [{'name'=>'foo', 'id'=>1}, {'name'=>'bar', 'id'=>2}] #['foo', 'bar']
-        test_data = fixture 'clients_projects_tasks'
-        test_client = Client.new test_data
-        Api.any_instance.stub(:clients_projects_tasks).and_return(test_data) # stub out real API call
-        # Api.any_instance.stub(:clients_projects_tasks).and_return(test_client)
-      end
+    its(:"clients.first") { should be_kind_of Client }
+    its(:"clients.first") { should respond_to :name }
+    its(:"clients.first") { should respond_to :id }
 
-      it 'should return a client names' do
-        @data.clients.names.should eq ['TestClient2', 'TestClient3']
-        @data.clients.first.name.should eq 'TestClient2'
-      end
+    its(:"clients.first.name") { should eq 'TestClient2' }
+    its(:"clients.first.id") { should eq 128542 }
 
-      it 'should return a client IDs' do
-        @data.clients.ids.should eq [128542, 888]
-        @data.clients.first.id.should eq 128542
-      end
+    # context 'returns a list of client names' do
+    #   its(:"clients.names") { should eq ['TestClient2', 'TestClient3'] }
+    # end
 
-      it 'should return an array of Clients' do
-        Client.should_receive(:new).with(test_data.first).and_return(test_client)
-        @data.clients.should eq [test_client]
-      end
+    # it 'returns an array of Clients' do
+    # context "array of Clients" do
+    #   before { Client.should_receive(:new).with(test_data).and_return(test_client) }
+    #   it { should == [test_client] }
+    #   # its(:clients) { should eq [test_client] }
+    # end
 
-      it 'should yield each Client' do
-        @data.should_receive(:clients).and_yield test_client
-        @data.clients { |c| }
-      end
+    # context 'yields each Client' do
+    #   it { should_receive(:clients).and_yield test_client }
+    #   # @data.clients { |c| }
+    # end
 
-      it 'should return an array of projects' do
-        test_data = fixture 'clients_projects_tasks'
-        test_project = test_data.first[:projects]
-
-        test_client = Client.new test_data
-        Api.any_instance.stub(:clients_projects_tasks).and_return(test_data)
-
-        @data.clients.first.projects.should eq [test_project]
-      end
-
-    end
+    # context 'projects' do
+    #   let(:test_project) { test_data.first[:projects] }
+    #   its(:'clients.first.projects') { should eq [test_project] }
+    # end
   end
 end

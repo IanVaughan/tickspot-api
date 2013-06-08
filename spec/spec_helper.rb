@@ -8,6 +8,6 @@ RSpec.configure do |c|
   c.mock_with :rspec
 
   def fixture filename
-    YAML.load_file File.join(File.dirname(__FILE__), 'fixtures', filename + '.yml')
+    YAML.load_file(File.join(File.dirname(__FILE__), 'fixtures', filename + '.yml'))
   end
 end
